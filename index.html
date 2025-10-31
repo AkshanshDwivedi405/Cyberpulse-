@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberPulse // Network Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="cyber-lines"></div>
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-shield-halved"></i>
+            <div class="logo-text">
+                <span class="logo-main">CyberPulse</span>
+                <span class="logo-sub">Network Defense System</span>
+            </div>
+        </div>
+        <div class="nav-stats">
+            <div class="stat-item pulse">
+                <i class="fas fa-satellite-dish"></i>
+                <span id="total-traffic-stat">Scanning...</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-shield-virus"></i>
+                <span id="threat-level">DEFCON 5</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- Top Row -->
+            <div class="dashboard-row graphs">
+                <div class="card packet-analyzer cyber-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-wave-square"></i> Packet Flow Analysis</h2>
+                        <div class="cyber-badge">Real-time</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="cyber-grid"></div>
+                            <canvas id="packet-flow-chart" class="cyber-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card protocol-stats cyber-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-chart-bar"></i> Protocol Distribution</h2>
+                        <div class="cyber-badge">Live</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="cyber-grid"></div>
+                        <canvas id="protocol-bar-chart" class="cyber-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="dashboard-row details">
+                <div class="card traffic-container cyber-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-network-wired"></i> Network Pulse</h2>
+                        <div class="refresh-info">
+                            <i class="fas fa-sync-alt fa-spin"></i>
+                            <span class="cyber-text">Live Feed</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="cyber-scanner"></div>
+                        <div id="traffic-data" class="table-responsive cyber-table"></div>
+                    </div>
+                </div>
+
+                <div class="card suggestions-container cyber-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-robot"></i> AI Defense Analysis</h2>
+                        <div class="cyber-badge">v2.0</div>
+                    </div>
+                    <div class="card-body">
+                        <div id="suggestions" class="cyber-alerts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
